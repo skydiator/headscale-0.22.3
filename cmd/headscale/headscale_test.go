@@ -59,7 +59,7 @@ func (*Suite) TestConfigFileLoading(c *check.C) {
 	c.Assert(viper.GetString("metrics_listen_addr"), check.Equals, "127.0.0.1:9090")
 	c.Assert(viper.GetString("db_type"), check.Equals, "sqlite3")
 	c.Assert(viper.GetString("db_path"), check.Equals, "/var/lib/headscale/db.sqlite")
-	c.Assert(viper.GetString("tls_letsencrypt_hostname"), check.Equals, "")
+  c.Assert(len(viper.GetStringSlice("tls_letsencrypt_hostname")), check.Equals, 2)
 	c.Assert(viper.GetString("tls_letsencrypt_listen"), check.Equals, ":http")
 	c.Assert(viper.GetString("tls_letsencrypt_challenge_type"), check.Equals, "HTTP-01")
 	c.Assert(viper.GetStringSlice("dns_config.nameservers")[0], check.Equals, "1.1.1.1")
@@ -102,7 +102,7 @@ func (*Suite) TestConfigLoading(c *check.C) {
 	c.Assert(viper.GetString("metrics_listen_addr"), check.Equals, "127.0.0.1:9090")
 	c.Assert(viper.GetString("db_type"), check.Equals, "sqlite3")
 	c.Assert(viper.GetString("db_path"), check.Equals, "/var/lib/headscale/db.sqlite")
-	c.Assert(viper.GetString("tls_letsencrypt_hostname"), check.Equals, "")
+  c.Assert(len(viper.GetStringSlice("tls_letsencrypt_hostname")), check.Equals, 2)
 	c.Assert(viper.GetString("tls_letsencrypt_listen"), check.Equals, ":http")
 	c.Assert(viper.GetString("tls_letsencrypt_challenge_type"), check.Equals, "HTTP-01")
 	c.Assert(viper.GetStringSlice("dns_config.nameservers")[0], check.Equals, "1.1.1.1")
@@ -164,7 +164,9 @@ func (*Suite) TestTLSConfigValidation(c *check.C) {
 	}
 	// defer os.RemoveAll(tmpDir)
 	configYaml := []byte(`---
-tls_letsencrypt_hostname: example.com
+tls_letsencrypt_hostname:
+  - example1.com
+  - example2.com
 tls_letsencrypt_challenge_type: ""
 tls_cert_path: abc.pem
 noise:
@@ -197,7 +199,9 @@ noise:
 noise:
   private_key_path: noise_private.key
 server_url: http://127.0.0.1:8080
-tls_letsencrypt_hostname: example.com
+tls_letsencrypt_hostname:
+  - example1.com
+  - example2.com
 tls_letsencrypt_challenge_type: TLS-ALPN-01
 `)
 	writeConfig(c, tmpDir, configYaml)
