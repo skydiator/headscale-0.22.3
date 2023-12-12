@@ -9,12 +9,8 @@
       "name": "HeadscaleService"
     }
   ],
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
-  ],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
   "paths": {
     "/api/v1/apikey": {
       "get": {
@@ -33,9 +29,7 @@
             }
           }
         },
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       },
       "post": {
         "summary": "--- ApiKeys start ---",
@@ -64,9 +58,7 @@
             }
           }
         ],
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       }
     },
     "/api/v1/apikey/expire": {
@@ -96,9 +88,7 @@
             }
           }
         ],
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       }
     },
     "/api/v1/debug/machine": {
@@ -129,9 +119,7 @@
             }
           }
         ],
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       }
     },
     "/api/v1/machine": {
@@ -159,9 +147,7 @@
             "type": "string"
           }
         ],
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       }
     },
     "/api/v1/machine/register": {
@@ -195,9 +181,7 @@
             "type": "string"
           }
         ],
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       }
     },
     "/api/v1/machine/{machineId}": {
@@ -226,9 +210,7 @@
             "format": "uint64"
           }
         ],
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       },
       "delete": {
         "operationId": "HeadscaleService_DeleteMachine",
@@ -255,9 +237,7 @@
             "format": "uint64"
           }
         ],
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       }
     },
     "/api/v1/machine/{machineId}/expire": {
@@ -286,9 +266,7 @@
             "format": "uint64"
           }
         ],
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       }
     },
     "/api/v1/machine/{machineId}/rename/{newName}": {
@@ -323,9 +301,7 @@
             "type": "string"
           }
         ],
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       }
     },
     "/api/v1/machine/{machineId}/routes": {
@@ -354,9 +330,7 @@
             "format": "uint64"
           }
         ],
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       }
     },
     "/api/v1/machine/{machineId}/tags": {
@@ -401,9 +375,7 @@
             }
           }
         ],
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       }
     },
     "/api/v1/machine/{machineId}/user": {
@@ -438,9 +410,7 @@
             "type": "string"
           }
         ],
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       }
     },
     "/api/v1/preauthkey": {
@@ -468,9 +438,7 @@
             "type": "string"
           }
         ],
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       },
       "post": {
         "summary": "--- PreAuthKeys start ---",
@@ -499,9 +467,7 @@
             }
           }
         ],
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       }
     },
     "/api/v1/preauthkey/expire": {
@@ -531,9 +497,7 @@
             }
           }
         ],
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       }
     },
     "/api/v1/routes": {
@@ -554,9 +518,7 @@
             }
           }
         },
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       }
     },
     "/api/v1/routes/{routeId}": {
@@ -585,9 +547,7 @@
             "format": "uint64"
           }
         ],
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       }
     },
     "/api/v1/routes/{routeId}/disable": {
@@ -616,9 +576,7 @@
             "format": "uint64"
           }
         ],
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       }
     },
     "/api/v1/routes/{routeId}/enable": {
@@ -647,9 +605,7 @@
             "format": "uint64"
           }
         ],
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       }
     },
     "/api/v1/user": {
@@ -669,9 +625,7 @@
             }
           }
         },
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       },
       "post": {
         "operationId": "HeadscaleService_CreateUser",
@@ -699,9 +653,7 @@
             }
           }
         ],
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       }
     },
     "/api/v1/user/{name}": {
@@ -730,9 +682,7 @@
             "type": "string"
           }
         ],
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       },
       "delete": {
         "operationId": "HeadscaleService_DeleteUser",
@@ -758,9 +708,7 @@
             "type": "string"
           }
         ],
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       }
     },
     "/api/v1/user/{oldName}/rename/{newName}": {
@@ -794,9 +742,7 @@
             "type": "string"
           }
         ],
-        "tags": [
-          "HeadscaleService"
-        ]
+        "tags": ["HeadscaleService"]
       }
     }
   },
