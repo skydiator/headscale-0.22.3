@@ -835,7 +835,7 @@ func (h *Headscale) Serve() error {
 
 func (h *Headscale) getTLSSettings() (*tls.Config, error) {
 	var err error
-  if len(h.cfg.TLS.LetsEncrypt.Hostname) >= 1 {
+	if len(h.cfg.TLS.LetsEncrypt.Hostname) >= 1 {
 		if !strings.HasPrefix(h.cfg.ServerURL, "https://") {
 			log.Warn().
 				Msg("Listening with TLS but ServerURL does not start with https://")
@@ -843,7 +843,7 @@ func (h *Headscale) getTLSSettings() (*tls.Config, error) {
 
 		certManager := autocert.Manager{
 			Prompt:     autocert.AcceptTOS,
-      HostPolicy: autocert.HostWhitelist(strings.Join(h.cfg.TLS.LetsEncrypt.Hostname,",")),
+			HostPolicy: autocert.HostWhitelist(strings.Join(h.cfg.TLS.LetsEncrypt.Hostname, ",")),
 			Cache:      autocert.DirCache(h.cfg.TLS.LetsEncrypt.CacheDir),
 			Client: &acme.Client{
 				DirectoryURL: h.cfg.ACMEURL,
