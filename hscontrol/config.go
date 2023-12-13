@@ -92,7 +92,7 @@ type TLSConfig struct {
 
 type LetsEncryptConfig struct {
 	Listen        string
-	Hostname      string
+	Hostname      []string
 	CacheDir      string
 	ChallengeType string
 }
@@ -211,7 +211,7 @@ func LoadConfig(path string, isFile bool) error {
 
 	// Collect any validation errors and return them all at once
 	var errorText string
-	if (viper.GetString("tls_letsencrypt_hostname") != "") &&
+	if (len(viper.GetStringSlice("tls_letsencrypt_hostname")) >= 1) &&
 		((viper.GetString("tls_cert_path") != "") || (viper.GetString("tls_key_path") != "")) {
 		errorText += "Fatal config error: set either tls_letsencrypt_hostname or tls_cert_path/tls_key_path, not both\n"
 	}
@@ -220,7 +220,7 @@ func LoadConfig(path string, isFile bool) error {
 		errorText += "Fatal config error: headscale now requires a new `noise.private_key_path` field in the config file for the Tailscale v2 protocol\n"
 	}
 
-	if (viper.GetString("tls_letsencrypt_hostname") != "") &&
+	if (len(viper.GetStringSlice("tls_letsencrypt_hostname")) >= 1) &&
 		(viper.GetString("tls_letsencrypt_challenge_type") == tlsALPN01ChallengeType) &&
 		(!strings.HasSuffix(viper.GetString("listen_addr"), ":443")) {
 		// this is only a warning because there could be something sitting in front of headscale that redirects the traffic (e.g. an iptables rule)
@@ -269,7 +269,7 @@ func LoadConfig(path string, isFile bool) error {
 func GetTLSConfig() TLSConfig {
 	return TLSConfig{
 		LetsEncrypt: LetsEncryptConfig{
-			Hostname: viper.GetString("tls_letsencrypt_hostname"),
+			Hostname: viper.GetStringSlice("tls_letsencrypt_hostname"),
 			Listen:   viper.GetString("tls_letsencrypt_listen"),
 			CacheDir: AbsolutePathFromConfigPath(
 				viper.GetString("tls_letsencrypt_cache_dir"),
