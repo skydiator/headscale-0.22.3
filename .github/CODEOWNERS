@@ -1,10 +1,10 @@
-* @juanfont @kradalby
+* @skydiator
 
-*.md @ohdearaugustin
-*.yml @ohdearaugustin
-*.yaml @ohdearaugustin
-Dockerfile* @ohdearaugustin
-.goreleaser.yaml @ohdearaugustin
-/docs/ @ohdearaugustin
-/.github/workflows/ @ohdearaugustin
-/.github/renovate.json @ohdearaugustin
+*.md @skydiator
+*.yml @skydiator
+*.yaml @skydiator
+Dockerfile* @skydiator
+.goreleaser.yaml @skydiator
+/docs/ @skydiator
+/.github/workflows/ @skydiator
+/.github/renovate.json @skydiator
